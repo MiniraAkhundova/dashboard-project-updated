@@ -1,0 +1,2656 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="dashboard.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="respondashboard.css" type="text/css" />
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+   <script>
+        $(document).ready(function () {
+            $("#flags").click(function () {
+                $("#flags-list").toggle(200);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#users-tools").click(function () {
+                $("#users-tools-list").toggle(200);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#bell").click(function () {
+                $("#notifications").toggle(200);
+            });
+        });
+
+        
+        $(document).ready(function () {
+            $("#envelope").click(function () {
+                $("#envelope-icon").slideToggle(100);
+            });
+        });
+        function openmega() {
+  document.getElementById("mega").style.width = "100%";
+}
+
+function closemega() {
+  document.getElementById("mega").style.width = "0";
+}
+
+ $(document).ready(function () {
+    $("#collapse-item-one-click").click(function () {
+                $("#collapse-item-one").toggle(200);
+            });
+        });
+         $(document).ready(function () {
+    $("#collapse-item-two-click").click(function () {
+                $("#collapse-item-two").toggle(200);
+            });
+        });
+         $(document).ready(function () {
+    $("#collapse-item-three-click").click(function () {
+                $("#collapse-item-three").toggle(200);
+            });
+        });
+
+      var markers = [
+            { latLng: [41.50, -87.37], name: 'Chicago' },
+            { latLng: [32.46, -96.46], name: 'Dallas' },
+            { latLng: [36.10, -115.12], name: 'Las Vegas' },
+            { latLng: [34.3, -118.15], name: 'Los Angeles' },
+            { latLng: [40.43, -74.00], name: 'New York City' },
+            { latLng: [53.412910, -8.243890], name: 'Ireland' },
+            { latLng: [42.697708, 23.321868], name: 'Sofia, Bulgia' },
+            { latLng: [40.014986, -105.270546], name: 'Boulder, CO' }
+        ];
+
+
+        $(function () {
+            $('#map').vectorMap({
+                map: 'world_mill',
+                zoomOnScroll: false,
+                hoverOpacity: 0.7,
+                markerStyle: {
+                    initial: {
+                        fill: '#FFD700',
+                        stroke: '#383f47'
+                    }
+                },
+                markers: markers
+            });
+        });
+
+        function addMapPoint(lat, lon, title) {
+            removeMapPoint();
+            var map = $('#map').vectorMap('get', 'mapObject');
+            map.addMarkers([{ latLng: [lat, lon], name: title }], []);
+        }
+
+        function removeMapPoint() {
+            var map = $('#map').vectorMap('get', 'mapObject');
+            map.removeAllMarkers();
+        }
+
+        function generateRandomLong() {
+            var num = (Math.random() * 180).toFixed(3);
+            var posorneg = Math.floor(Math.random());
+            if (posorneg == 0) {
+                num = num * -1;
+            }
+            return num;
+        }
+
+        function generateRandomLat() {
+            var num = (Math.random() * 90).toFixed(3);
+            var posorneg = Math.floor(Math.random());
+            if (posorneg == 0) {
+                num = num * -1;
+            }
+            return num;
+        }
+
+        window.setInterval(function () {
+            var lon = generateRandomLong();
+            var lat = generateRandomLat();
+
+            addMapPoint(lat, lon, lat + "," + lon);
+        }, 2500);
+        
+           function openNaviphone() {
+  document.getElementById("mySidenaviphone").style.width = "250px";
+}
+
+function closeNaviphone() {
+  document.getElementById("mySidenaviphone").style.width = "0";
+        }
+
+function opensearcher() {
+  document.getElementById("searcher").style.width = "100%";
+}
+
+function closesearcher() {
+  document.getElementById("searcher").style.width = "0";
+        }
+        function opensearcheriphone() {
+  document.getElementById("searcheriphone").style.width = "100%";
+}
+
+function closesearcheriphone() {
+  document.getElementById("searcheriphone").style.width = "0";
+        }
+        var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { 
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { 
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { 
+    elem.msRequestFullscreen();
+  }
+        }
+        function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+        }
+
+                function openNaviphone() {
+  document.getElementById("mySidenaviphone").style.width = "250px";
+}
+
+function closeNaviphone() {
+  document.getElementById("mySidenaviphone").style.width = "0";
+        }
+
+        function openNavcolor() {
+  document.getElementById("mySidenavcolor").style.width = "250px";
+}
+
+function closeNavcolor() {
+  document.getElementById("mySidenavcolor").style.width = "0";
+}
+
+        function navbarskins() {
+      document.getElementById("mySidenavcolor").style.height = "520px";
+document.getElementById("navbarcolor").style.display="block";
+document.getElementById("sidebarcolor").style.display="none";
+document.getElementById("primarycolor").style.display="none";
+}
+        function sidebarskins() {
+            document.getElementById("mySidenavcolor").style.height = "210px";
+document.getElementById("navbarcolor").style.display="none";
+document.getElementById("sidebarcolor").style.display="block";
+document.getElementById("primarycolor").style.display="none";
+}
+        function primaryskins() {
+      document.getElementById("mySidenavcolor").style.height = "520px";
+document.getElementById("navbarcolor").style.display="none";
+document.getElementById("sidebarcolor").style.display="none";
+document.getElementById("primarycolor").style.display="block";
+}
+   
+
+        function primary() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#36459b";
+        }
+         function blue() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#1565c0";
+        }
+         function brown() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#4e342e";
+        }
+         function cyan() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#00838f";
+        }
+         function green() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#2e7d32";
+        }
+         function grey() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#424242";
+        }
+         function orange() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#ef6c00";
+        }
+         function pink() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#ad1457";
+        }
+         function purple() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#6a1b9a";
+        }
+         function red() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#c62828";
+        }
+         function teal() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#00695c";
+        }
+         function yellow() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#f9a825";
+        }
+        function resetnavbar() {
+            document.getElementById("navbardesktop").style.backgroundColor = "#36459b";
+        }
+        function dark() {
+            document.getElementById("mySidenav").style.backgroundColor = "#111";
+        }
+        function light() {
+            document.getElementById("mySidenav").style.backgroundColor = "#fff";
+        }
+         function resetsidebar() {
+            document.getElementById("mySidenav").style.backgroundColor = "#fff";
+        }
+
+        function pprimary() {
+            document.getElementById("reverse").style.backgroundColor = "#36459b";
+                 let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #36459b');
+            document.getElementById("resetprimary").style.backgroundColor = "#36459b";
+            document.getElementById("spin-colorchange").style.color = "#36459b";
+
+                             var x = document.getElementsByClassName("mega-text");
+  var i;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.color = "#36459b";
+            }
+            
+        }
+        function pblue() {
+            document.getElementById("reverse").style.backgroundColor = "#1565c0";
+             let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #1565c0');
+            document.getElementById("resetprimary").style.backgroundColor = "#1565c0";
+             document.getElementById("spin-colorchange").style.color = "#1565c0";
+            var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#1565c0";
+            }
+        }
+        function pbrown(){
+            document.getElementById("reverse").style.backgroundColor = "#4e342e";
+            let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #4e342e');
+            document.getElementById("resetprimary").style.backgroundColor = "#4e342e";
+             document.getElementById("spin-colorchange").style.color = "#4e342e";
+                var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#4e342e";
+            }
+           }
+         function pcyan(){
+             document.getElementById("reverse").style.backgroundColor = "#00838f";
+             let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #00838f');
+             document.getElementById("resetprimary").style.backgroundColor = "#00838f";
+              document.getElementById("spin-colorchange").style.color = "#00838f";
+                  var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#00838f";
+            }
+
+        }
+           function pgreen(){
+               document.getElementById("reverse").style.backgroundColor = "#2e7d32";
+               let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #2e7d32');
+               document.getElementById("resetprimary").style.backgroundColor = "#2e7d32";
+                document.getElementById("spin-colorchange").style.color = "#2e7d32";
+                  var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#2e7d32";
+            }
+
+        }
+        function pgrey(){
+            document.getElementById("reverse").style.backgroundColor = "#424242";
+            let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #424242');
+            document.getElementById("resetprimary").style.backgroundColor = "#424242";
+             document.getElementById("spin-colorchange").style.color = "#424242";
+                var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#424242";
+            }
+
+        }
+        function porange(){
+            document.getElementById("reverse").style.backgroundColor = "#ef6c00";
+            let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #ef6c00');
+            document.getElementById("resetprimary").style.backgroundColor = "#ef6c00";
+             document.getElementById("spin-colorchange").style.color = "#ef6c00";
+               var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#ef6c00";
+            }
+
+        }
+        function ppink(){
+            document.getElementById("reverse").style.backgroundColor = "#ad1457";
+            let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #ad1457');
+            document.getElementById("resetprimary").style.backgroundColor = "#ad1457";
+             document.getElementById("spin-colorchange").style.color = "#ad1457";
+                var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#ad1457";
+            }
+
+        }
+        function ppurple(){
+            document.getElementById("reverse").style.backgroundColor = "#6a1b9a";
+            let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #6a1b9a');
+            document.getElementById("resetprimary").style.backgroundColor = "#6a1b9a";
+             document.getElementById("spin-colorchange").style.color = "#6a1b9a";
+               var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#6a1b9a";
+            }
+
+        }
+        function pred(){
+            document.getElementById("reverse").style.backgroundColor = "#c62828";
+            let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #c62828');
+            document.getElementById("resetprimary").style.backgroundColor = "#c62828";
+             document.getElementById("spin-colorchange").style.color = "#c62828";
+                 var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#c62828";
+            }
+
+        }
+        function pteal(){
+            document.getElementById("reverse").style.backgroundColor = "#00695c";
+            let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #00695c');
+            document.getElementById("resetprimary").style.backgroundColor = "#00695c";
+             document.getElementById("spin-colorchange").style.color = "#00695c";
+                var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#00695c";
+            }
+
+        }
+        function pyellow(){
+            document.getElementById("reverse").style.backgroundColor = "#f9a825";
+            let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #f9a825');
+            document.getElementById("resetprimary").style.backgroundColor = "#f9a825";
+             document.getElementById("spin-colorchange").style.color = "#f9a825";
+               var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#f9a825";
+            }
+
+        }
+        function resetprimary() {
+            document.getElementById("reverse").style.backgroundColor = "#36459b";
+            let element = document.getElementById("reverse");
+            element.style.setProperty("--border-right", ' 15px solid #36459b');
+            document.getElementById("resetprimary").style.backgroundColor = "#36459b";
+             document.getElementById("spin-colorchange").style.color = "#36459b";
+                var x = document.getElementsByClassName("mega-text");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.color = "#36459b";
+            }
+        }
+      </script>
+</head>
+<body>
+ <header id="navbardesktop" class="d-flex  justify-content-between">
+        <div class="hidden-left-menu">
+            <i onclick="openNaviphone()" class='fas fa-bars' style='font-size:17px;color:#fff;margin-left:10px;'></i>
+            <div id="mySidenaviphone" class="sidenaviphone">
+                <div style="width:260px;height:140px;display:flex;justify-content:center;" class="hamburger-menu-picture">
+                    <div style="display:inline-flex;align-items:center;width:220px;" class="hm-text ">
+                        <div style="margin-right:15px;" class="hm-text-man"><img width="50" style="border-radius:50%;" src="https://getbootstrapadmin.com/remark/material/global/portraits/1.jpg" /></div>
+                        <div class="hm-text-info">
+                            <p style="font-size:14px;color:#fff;margin-bottom:0;">Matchi</p>
+                            <p style="font-size:12px;color:#fff;margin-bottom:0;">machidesign@gmail.com </p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNaviphone()">&times;</a>
+                <a href="#">Dashboard<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Layouts<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Pages<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Basic Ui<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Advanced Ui<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Structure<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Widgets<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Forms<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Tables<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Chart<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                <a href="#">Apps<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+            </div>
+        </div>
+        <div style="margin-right: 60px;" class="hidden-logo"><img src="https://getbootstrapadmin.com/remark/material/center/assets/images/logo.png" /></div>
+        <div class="hidden-right-menu">
+            <ul style="margin-right: 10px;" class="hidden-menu-list">
+                <li>
+                    <i onclick="opensearcheriphone()" class="fas fa-search" style="font-size:13px;color:#fff;" aria-hidden="true"></i>
+                    <div id="searcheriphone" class="dashsearcheriphone">
+                        <div class="searcher-inputiphone"><input type="text" placeholder="Search over 10,000 products..."></div>
+                        <div href="javascript:void(0)" class="closesearcheriphone" onclick="closesearcheriphone()"><i class='fas fa-times' style='font-size:18px;color:#757575;'></i> </div>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="left-menu">
+            <ul class="left-menu-list ">
+                <!--hamburger menu-->
+                <li>
+                    <i onclick="openNav()" class='fas fa-bars' style='font-size:17px;'></i>
+                    <div id="mySidenav" class="sidenav">
+                        <div style="width:260px;height:140px;display:flex;justify-content:center;" class="hamburger-menu-picture">
+                            <div style="display:inline-flex;align-items:center;width:220px;" class="hm-text ">
+                                <div style="margin-right:15px;" class="hm-text-man"><img width="50" style="border-radius:50%;" src="https://getbootstrapadmin.com/remark/material/global/portraits/1.jpg" /></div>
+                                <div class="hm-text-info">
+                                    <p style="font-size:14px;color:#fff;margin-bottom:0;">Matchi</p>
+                                    <p style="font-size:12px;color:#fff;margin-bottom:0;">machidesign@gmail.com </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="#">Dashboard<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Layouts<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Pages<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Basic Ui<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Advanced Ui<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Structure<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Widgets<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Forms<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Tables<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Chart<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                        <a href="#">Apps<span><i class='fas fa-angle-right' style='font-size:13px;color:#818181;'></i></span></a>
+                    </div>
+
+                </li>
+
+                <li>
+                    <i id="main-colorchange-bg-button-1" onclick="openFullscreen();" class='fas fa-expand-arrows-alt' style='font-size:10px'></i>
+
+
+
+                </li>
+                <li>
+                    <i onclick="opensearcher()" class="fas fa-search " style="font-size:10px;" aria-hidden="true"></i>
+                    <div id="searcher" class="dashsearcher">
+                        <div class="searcher-input"><input type="text" placeholder="Search over 10,000 products..."></div>
+                        <div href="javascript:void(0)" class="closesearcher" onclick="closesearcher()"><i class='fas fa-times' style='font-size:18px;color:#757575;'></i> </div>
+
+                    </div>
+                </li>
+                <li onclick="openmega()"><!--hidden mega menu--> Mega<i class='fas fa-angle-down ml-1' style='font-size:13px'></i></li>
+                <div id="mega" class="dashmega">
+                    <div class="megatexts">
+                        <p style="font-size:14px;
+color:#424242;font-weight:500;display:inline;margin-left:8px;">UI Kit</p>
+                        <div class="megatext-lists">
+                            <ul>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text" href="">Animation</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Buttons</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Colors</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Dropdowns</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Icons</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Lightbox</a></li>
+                            </ul>
+                            <ul>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Modals</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Panels</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Overlay</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Tooltips</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Scrollable</a></li>
+                                <li><i class='fas fa-angle-right' style='font-size:14px;color:#757575;'></i><a class="mega-text"  href="">Typography</a></li>
+                            </ul>
+                        </div> </div>
+                    <div class="mega-pictures">
+                        <p style="font-size:14px;color:#424242;margin-left:15px;display:inline;font-weight:500;">
+                            Media<span style="background-color: #28a745; border: solid 1px #28a745; color: #fff; padding: 0px 4.5px; border-radius: 50%; display: inline-flex; font-size: 10px; position: relative;margin-left: 5px;">4</span>
+                        </p>
+                        <div class="mega-pictures-views">
+                            <div class="grid-container-mega">
+                                <div class="grid-item-mega"><img src="https://getbootstrapadmin.com/remark/material/global/photos/view-1-150x100.jpg"></div>
+                                <div class="grid-item-mega"><img src="https://getbootstrapadmin.com/remark/material/global/photos/view-2-150x100.jpg"></div>
+                                <div class="grid-item-mega"><img src="https://getbootstrapadmin.com/remark/material/global/photos/view-3-150x100.jpg"></div>
+                                <div class="grid-item-mega"><img src="https://getbootstrapadmin.com/remark/material/global/photos/view-4-150x100.jpg"></div>
+                                <div class="grid-item-mega"><img src="https://getbootstrapadmin.com/remark/material/global/photos/view-5-150x100.jpg"></div>
+                                <div class="grid-item-mega"><img src="https://getbootstrapadmin.com/remark/material/global/photos/view-6-150x100.jpg"></div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="dropdown-mega">
+                        <p style="font-size:14px;color:#424242;font-weight:500;">Accordion</p>
+                        <div class="dropdown-mega-items">
+                            <p><span>Collapsible Group Item #1</span><span><i id="collapse-item-one-click" class='fas fa-plus' style='font-size:8px;color:#757575;margin-left: 30px;'></i></span></p>
+                            <div id="collapse-item-one">De moveat laudatur vestra parum doloribus labitur sentire partes, eripuit praesenti congressus ostendit alienae, voluptati ornateque accusamus clamat reperietur convicia albucius.</div>
+                            <p><span>Collapsible Group Item #2</span><span><i id="collapse-item-two-click" class='fas fa-plus' style='font-size:8px;color:#757575;margin-left: 30px;'></i></span></p>
+                            <div id="collapse-item-two">Praestabiliorem. Pellat excruciant legantur ullum leniter vacare foris voluptate loco ignavi, credo videretur multoque choro fatemur mortis animus adoptionem, bello statuat expediunt naturales.</div>
+                            <p><span>Collapsible Group Item #3</span><span><i id="collapse-item-three-click" class='fas fa-plus' style='font-size:8px;color:#757575;margin-left: 30px;'></i></span></p>
+                            <div id="collapse-item-three">Horum, antiquitate perciperet d conspectum locus obruamus animumque perspici probabis suscipere. Desiderat magnum, contenta poena desiderant concederetur menandri damna disputandum corporum.</div>
+                        </div>
+                    </div>
+                    <div width="20" href="javascript:void(0)" class="closesearcher" onclick="closemega()"><i class='fas fa-times' style='font-size:14px;color:#757575;'></i></div>
+
+                </div>
+
+            </ul>
+
+        </div>
+        <div class="logo"><img src="https://getbootstrapadmin.com/remark/material/center/assets/images/logo.png" /></div>
+        <div class="right-menu ">
+            <ul class="right-menu-list ">
+                <li>
+                    <img id="flags" style="width:20px;" src="https://getbootstrapadmin.com/remark/material/global/vendor/flag-icon-css/flags/4x3/us.svg" />
+                    <ul id="flags-list">
+                        <li><img src="https://getbootstrapadmin.com/remark/material/global/vendor/flag-icon-css/flags/4x3/gb.svg" />English</li>
+                        <li><img src="https://getbootstrapadmin.com/remark/material/global/vendor/flag-icon-css/flags/4x3/fr.svg" />French</li>
+                        <li><img src="https://getbootstrapadmin.com/remark/material/global/vendor/flag-icon-css/flags/4x3/cn.svg" />Chinese</li>
+                        <li><img src="https://getbootstrapadmin.com/remark/material/global/vendor/flag-icon-css/flags/4x3/de.svg" />German</li>
+                        <li><img src="https://getbootstrapadmin.com/remark/material/global/vendor/flag-icon-css/flags/4x3/nl.svg" />Dutch</li>
+                    </ul>
+
+
+                </li>
+                <li>
+                    <img id="users-tools" style="width:30px;border-radius:100%;" src="https://getbootstrapadmin.com/remark/material/global/portraits/5.jpg"><span style="display:inline-block;position:relative;right:20%;top:35%;border:solid 2px #fff;background-color:#4caf50;border-radius:50%;width:10px;height:10px;"></span>
+                    <ul id="users-tools-list" style="list-style-type:none;">
+                        <li><i class='fas fa-user' style='font-size:13px;color:#757575;'></i>Profile </li>
+                        <li><i class='far fa-credit-card' style='font-size:13px;color:#757575;'></i>Billing</li>
+                        <li><i class='fas fa-cog' style='font-size:13px;color:#757575;'></i>Settings </li>
+                        <li style="border-top:solid 1px #e0e0e0;"><i class='fas fa-power-off' style='font-size:13px;color:#757575;'></i>Logout</li>
+                    </ul>
+
+                </li>
+                <li>
+                    <i id="bell" class='fas fa-bell' style='font-size:15px;color:#fff;'></i><span style="background-color:#dc3545;border:solid 1px #dc3545;color:#fff; padding:0px 4.5px;border-radius:100%;display:inline-flex;font-size:10px;position:relative;bottom:35%;right:20%;">5</span>
+                    <ul id="notifications">
+                        <li style="display:flex;justify-content:space-between;align-items:center;">
+                            <div><h5 style="margin-top:3px;">NOTIFICATIONS</h5></div><div style="border:solid 1px #dc3545;padding:2px 6px;color:#fff;background-color:#dc3545;font-size:10px;border-radius:50px;">New 5</div>
+                        </li>
+                        <li>
+                            <div style="background-color:#e53935;" class="lil-radius"><span><i class='far fa-newspaper' style='font-size:13px;color:#fff;'></i></span></div><div>
+                                <h6 class="media-heading">A new order has been placed</h6>
+                                <p style="font-size:12px;">5 hours ago</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div style="background-color:#43a047;" class="lil-radius"><span><i class='fas fa-user-alt' style='font-size:13px;color:#fff;'></i></span></div><div>
+                                <h6 class="media-heading">Completed the task</h6>
+                                <p style="font-size:12px;">2 days ago</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div style="background-color:#e53935;" class="lil-radius"><span><i class='fas fa-cog' style='font-size:13px;color:#fff;'></i></span></div><div>
+                                <h6 class="media-heading">Settings updated</h6>
+                                <p style="font-size:12px;">2 days ago</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div style="background-color:#1e88e5;" class="lil-radius"><span><i class='far fa-calendar-alt' style='font-size:13px;color:#fff;'></i></span></div><div>
+                                <h6 class="media-heading">Event started</h6>
+                                <p style="font-size:12px;">3 days ago</p>
+                            </div>
+                        </li>
+
+                        <li style="background-color:#eee;color:#757575;justify-content:space-between;"><div>All notifications</div><div style="margin:0px;" class="lil-radius"><i class='fas fa-cog' style='font-size:13px;color:#757575;'></i></div></li>
+                    </ul>
+
+                </li>
+                <li>
+                    <i id="envelope" class='fas fa-envelope' style='font-size:15px;color:#fff;'></i><span style="background-color:#17a2b8;border:solid 1px #17a2b8;color:#fff; padding:0px 4.5px;border-radius:100%;display:inline-flex;font-size:10px;position:relative;bottom:35%;right:20%;">3</span>
+                    <ul style="list-style-type:none;" id="envelope-icon">
+                        <li style="display:flex;justify-content:space-between;align-items:center;padding:10px 5px;"><div><h5 style="color:#424242;margin-top:10px;margin-left:15%;">MESSAGES</h5></div><div style="margin-right:5%;"><span style="border:solid 1px #17a2b8;padding:2px 6px;font-size:10px; background-color:#17a2b8;color:#fff;border-radius:50px;">New 3</span></div></li>
+
+                        <li>
+                            <div class="envelope-user-face">
+                                <img src="https://getbootstrapadmin.com/remark/material/global/portraits/3.jpg">
+                                <span style="display:inline-block;position:relative;right:30%;top:20%;border:solid 2px #fff;background-color:#4caf50;border-radius:50%;width:8px;height:8px;"></span>
+
+                            </div>
+                            <div class="envelope-user-name">
+                                <h6>Caleb Richards</h6>
+                                <p>12 days ago</p>
+                                <p>Lorem ipsum Id consectetur et minim</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="envelope-user-face">
+                                <img src="https://getbootstrapadmin.com/remark/material/global/portraits/4.jpg">
+                                <span style="display:inline-block;position:relative;right:30%;top:20%;border:solid 2px #fff;background-color:#616161;border-radius:50%;width:8px;height:8px;"></span>
+                            </div>
+                            <div class="envelope-user-name">
+                                <h6>June Lane</h6>
+                                <p>2 days ago</p>
+                                <p>I checheck the document. But there seems</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="envelope-user-face">
+                                <img src="https://getbootstrapadmin.com/remark/material/global/portraits/5.jpg">
+                                <span style="display:inline-block;position:relative;right:30%;top:20%;border:solid 2px #fff;background-color:#ff9800;border-radius:50%;width:8px;height:8px;"></span>
+                            </div>
+                            <div class="envelope-user-name">
+                                <h6>Edward Fletcher</h6>
+                                <p>3 days ago</p>
+                                <p>Dolor et irure cupidatat commodo nostrud nostrud.</p>
+                            </div>
+                        </li>
+
+                        <li style="background-color:#eee;color:#757575;justify-content:space-between;">
+                            <div style="margin-left:5%;">All notifications</div><div style="margin:px;" class="lil-radius"><i class='fas fa-cog' style='font-size:13px;color:#757575;'></i></div>
+                       </li>
+                    </ul>
+               </li>
+                <li><i class='fas fa-comment-alt' style='font-size:15px;color:#fff;'></i></li>
+            </ul>
+        </div>
+    </header>
+
+    <!--colorchanger-->
+    <span id="ch-menu" style="font-size:20px;cursor:pointer;padding:5px;border-radius:3px;" onclick="openNavcolor()"><i id="spin-colorchange" class='fas fa-cog fa-spin' style='font-size:20px;padding:5px;'></i></span>
+    <div id="mySidenavcolor" class="sidenavcolor">
+        <a href="javascript:void(0)" class="closebtncolor" onclick="closeNavcolor()">&times;</a>
+        <div id="ch-menu-items">
+            <div onclick="sidebarskins()" id="ch-menu-items-sidebar">Sidebar</div>
+            <div onclick="navbarskins()" id="ch-menu-items-navbar">Navbar</div>
+            <div onclick="primaryskins()" id="ch-menu-items-primary">Primary</div>
+        </div>
+        <ul id="primarycolor" style="list-style-type:none;padding:0;">
+            <li style="font-size:18px;color:#424242;">Primary Skins</li>
+            <li onclick="pprimary()"><i class='fas fa-dot-circle' style='font-size:20px;color:#36459b;margin-right:5px;'></i>primary</li>
+            <li onclick="pblue()"><i class='fas fa-dot-circle' style='font-size:20px;color:#1565c0;margin-right:5px;'></i>blue</li>
+            <li onclick="pbrown()"><i class='fas fa-dot-circle' style='font-size:20px;color:#4e342e;margin-right:5px;'></i>brown</li>
+            <li onclick="pcyan()"><i class='fas fa-dot-circle' style='font-size:20px;color:#00838f;margin-right:5px;'></i>cyan</li>
+            <li onclick="pgreen()"><i class='fas fa-dot-circle' style='font-size:20px;color:#2e7d32;margin-right:5px;'></i>green</li>
+            <li onclick="pgrey()"><i class='fas fa-dot-circle' style='font-size:20px;color:#424242;margin-right:5px;'></i>grey</li>
+            <li onclick="porange()"><i class='fas fa-dot-circle' style='font-size:20px;color:#ef6c00;margin-right:5px;'></i>orange</li>
+            <li onclick="ppink()"><i class='fas fa-dot-circle' style='font-size:20px;color:#ad1457;margin-right:5px;'></i>pink</li>
+            <li onclick="ppurple()"><i class='fas fa-dot-circle' style='font-size:20px;color:#6a1b9a;margin-right:5px;'></i>purple</li>
+            <li onclick="pred()"><i class='fas fa-dot-circle' style='font-size:20px;color:#c62828;margin-right:5px;'></i>red</li>
+            <li onclick="pteal()"><i class='fas fa-dot-circle' style='font-size:20px;color:#00695c;margin-right:5px;'></i>teal</li>
+            <li onclick="pyellow()"><i class='fas fa-dot-circle' style='font-size:20px;color:#f9a825;margin-right:5px;'></i>yellow</li>
+
+            <li><button id="resetprimary" onclick="resetprimary()" style="width:228px;height:35.6px;font-size:14px;border-radius:3px;border-color:transparent;color:#fff;">Reset</button></li>
+        </ul>
+        <ul id="sidebarcolor" style="list-style-type:none;padding:0;">
+            <li style="font-size:18px;color:#424242;">Sidebar Skins</li>
+            <li onclick="dark()"><i class='fas fa-dot-circle' style='font-size:20px;color:#424242;margin-right:5px;'></i>dark</li>
+            <li onclick="light()"><i class='fas fa-dot-circle' style='font-size:20px;color:#e0e0e0;margin-right:5px;'></i>light</li>
+            <li>
+                <button onclick="resetsidebar()" id="resetsidebar" style="width:228px;height:35.6px;font-size:14px;border-radius:3px;border-color:transparent;color:#fff;">Reset</button>
+            </li>
+        </ul>
+        <ul id="navbarcolor" style="list-style-type:none;padding:0;">
+            <li style="font-size:18px;color:#424242;">Navbar Skins</li>
+            <li onclick="primary()"><i class='fas fa-dot-circle' style='font-size:20px;color:#36459b;margin-right:5px;'></i>primary</li>
+            <li onclick="blue()"><i class='fas fa-dot-circle' style='font-size:20px;color:#1565c0;margin-right:5px;'></i>blue</li>
+            <li onclick="brown()"><i class='fas fa-dot-circle' style='font-size:20px;color:#4e342e;margin-right:5px;'></i>brown</li>
+            <li onclick="cyan()"><i class='fas fa-dot-circle' style='font-size:20px;color:#00838f;margin-right:5px;'></i>cyan</li>
+            <li onclick="green()"><i class='fas fa-dot-circle' style='font-size:20px;color:#2e7d32;margin-right:5px;'></i>green</li>
+            <li onclick="grey()"><i class='fas fa-dot-circle' style='font-size:20px;color:#424242;margin-right:5px;'></i>grey</li>
+            <li onclick="orange()"><i class='fas fa-dot-circle' style='font-size:20px;color:#ef6c00;margin-right:5px;'></i>orange</li>
+            <li onclick="pink()"><i class='fas fa-dot-circle' style='font-size:20px;color:#ad1457;margin-right:5px;'></i>pink</li>
+            <li onclick="purple()"><i class='fas fa-dot-circle' style='font-size:20px;color:#6a1b9a;margin-right:5px;'></i>purple</li>
+            <li onclick="red()"><i class='fas fa-dot-circle' style='font-size:20px;color:#c62828;margin-right:5px;'></i>red</li>
+            <li onclick="teal()"><i class='fas fa-dot-circle' style='font-size:20px;color:#00695c;margin-right:5px;'></i>teal</li>
+            <li onclick="yellow()"><i class='fas fa-dot-circle' style='font-size:20px;color:#f9a825;margin-right:5px;'></i>yellow</li>
+
+            <li><button onclick="resetnavbar()" id="resetnavbar" style="width:228px;height:35.6px;font-size:14px;border-radius:3px;border-color:transparent;color:#fff;">Reset</button></li>
+        </ul>
+    </div>
+
+ <section class="hills mx-auto">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-3 column">
+                <div class=" hill-two">
+                    <div class="hill-item">
+                        ​<i class='fas fa-user mr-2' style='font-size:18px;color:#757575;'></i>
+                        User
+                    </div><div class="hill-number">1,253</div>
+                </div>
+                <div class=" hills-text">
+                    <i class='fas fa-long-arrow-alt-up' style='font-size:15px;color:#4caf50;'></i>
+                    15% From this yesterday
+                </div>
+                <div class="hill-img"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100px" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"></g><g><g class="ct-series ct-series-a"><path fill="#7986cb" d="M0,50L0,50C11.529,45.833,23.057,43.056,34.586,37.5C46.114,31.944,57.643,12.5,69.171,12.5C80.7,12.5,92.229,25,103.757,25C115.286,25,126.814,6.25,138.343,6.25C149.871,6.25,161.4,35,172.929,35C184.457,35,195.986,31.25,207.514,31.25C219.043,31.25,230.571,43.75,242.1,50L242.1,50Z" class="ct-area"></path></g></g><g class="ct-labels"></g></svg></div>
+
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3 column">
+                <div class=" hill-two"><div class="hill-item"><i class='fas fa-bolt mr-2' style='font-size:18px;color:#757575;'></i> VISITS</div><div class="hill-number">2,425</div></div>
+                <div class=" hills-text">
+                    <i class='fas fa-long-arrow-alt-up' style='font-size:15px;color:#4caf50;'></i>
+                    34.2% From this week
+                </div>
+                <div class="hill-img"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100px" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"></g><g><g class="ct-series ct-series-a"><path fill="#ffd54f" d="M0,50L0,50C10.088,47.917,20.175,46.97,30.263,43.75C40.35,40.53,50.438,22.5,60.525,22.5C70.613,22.5,80.7,25,90.788,25C100.875,25,110.963,15,121.05,15C131.138,15,141.225,21.25,151.313,21.25C161.4,21.25,171.488,8.75,181.575,8.75C191.663,8.75,201.75,13.699,211.838,18.75C221.925,23.801,232.013,39.583,242.1,50L242.1,50Z" class="ct-area"></path></g></g><g class="ct-labels"></g></svg></div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3 column">
+                <div class=" hill-two"><div class="hill-item"><i class='fas fa-poll mr-2' style='font-size:18px;color:#757575;'></i>Total Clicks</div><div class="hill-number">1,864</div></div>
+                <div class=" hills-text">
+                    <i class='fas fa-long-arrow-alt-down' style='font-size:15px;color:#f44336;'></i>
+                    15% From this yesterday
+                </div>
+                <div class="hill-img"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100px" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"></g><g><g class="ct-series ct-series-a"><path fill="#4dd0e1" d="M0,50L0,50C11.529,41.667,23.057,25,34.586,25C46.114,25,57.643,31.25,69.171,31.25C80.7,31.25,92.229,6.25,103.757,6.25C115.286,6.25,126.814,22.5,138.343,22.5C149.871,22.5,161.4,12.5,172.929,12.5C184.457,12.5,195.986,35.111,207.514,40C219.043,44.889,230.571,46.667,242.1,50L242.1,50Z" class="ct-area"></path></g></g><g class="ct-labels"></g></svg></div>
+              </div>
+            <div class="col-sm-12 col-md-6 col-lg-3 column">
+                <div class=" hill-two"><div class="hill-item"><i class='fas fa-th-list mr-2' style='font-size:18px;color:#757575;'></i> Items</div><div class="hill-number">845</div></div>
+                <div class="hills-text">
+                    <i class='fas fa-long-arrow-alt-up' style='font-size:15px;color:#4caf50;'></i>
+                    18.4% From this yesterday
+                </div>
+                <div class="hill-img"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100" class="ct-chart-line" style="width: 100%; height: 100%;"><g class="ct-grids"></g><g><g class="ct-series ct-series-a"><path fill="#81c784" d="M0,50L0,50C10.088,45,20.175,40,30.263,35C40.35,30,50.438,20.769,60.525,20C70.613,19.231,80.7,19.508,90.788,18.75C100.875,17.992,110.963,6.25,121.05,6.25C131.138,6.25,141.225,25,151.313,25C161.4,25,171.488,18.75,181.575,18.75C191.663,18.75,201.75,29.8,211.838,35C221.925,40.2,232.013,45,242.1,50L242.1,50Z" class="ct-area"></path></g></g><g class="ct-labels"></g></svg></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map mx-auto">
+        <script>
+            am4core.ready(function () {
+
+                // Themes begin
+                am4core.useTheme(am4themes_animated);
+                // Themes end
+
+                // Define country data
+                var countries = {
+                    "AD": {
+                        "country": "Andorra",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["andorraLow", "andorraHigh"]
+                    },
+                    "AE": {
+                        "country": "United Arab Emirates",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["uaeLow", "uaeHigh"]
+                    },
+                    "AF": {
+                        "country": "Afghanistan",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "AG": {
+                        "country": "Antigua and Barbuda",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["antiguaBarbudaLow", "antiguaBarbudaHigh"]
+                    },
+                    "AI": {
+                        "country": "Anguilla",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["anguillaLow", "anguillaHigh"]
+                    },
+                    "AL": {
+                        "country": "Albania",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["albaniaLow", "albaniaHigh"]
+                    },
+                    "AM": {
+                        "country": "Armenia",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["armeniaLow", "armeniaHigh"]
+                    },
+                    "AO": {
+                        "country": "Angola",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["angolaLow", "angolaHigh"]
+                    },
+                    "AQ": {
+                        "country": "Antarctica",
+                        "continent_code": "AN",
+                        "continent": "Antarctica",
+                        "maps": []
+                    },
+                    "AR": {
+                        "country": "Argentina",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["argentinaLow", "argentinaHigh"]
+                    },
+                    "AS": {
+                        "country": "American Samoa",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": ["americanSamoaLow", "americanSamoaHigh"]
+                    },
+                    "AT": {
+                        "country": "Austria",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["austriaLow", "austriaHigh"]
+                    },
+                    "AU": {
+                        "country": "Australia",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": ["australiaLow", "australiaHigh"]
+                    },
+                    "AW": {
+                        "country": "Aruba",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["arubaLow", "arubaHigh"]
+                    },
+                    "AX": {
+                        "country": "Aland Islands",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": []
+                    },
+                    "AZ": {
+                        "country": "Azerbaijan",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["azerbaijanLow", "azerbaijanHigh"]
+                    },
+                    "BA": {
+                        "country": "Bosnia and Herzegovina",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["bosniaHerzegovinaLow", "bosniaHerzegovinaHigh", "bosniaHerzegovinaCantonsLow", "bosniaHerzegovinaCantonsHigh"]
+                    },
+                    "BB": {
+                        "country": "Barbados",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["barbadosLow", "barbadosHigh"]
+                    },
+                    "BD": {
+                        "country": "Bangladesh",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["bangladeshLow", "bangladeshHigh"]
+                    },
+                    "BE": {
+                        "country": "Belgium",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["belgiumLow", "belgiumHigh"]
+                    },
+                    "BF": {
+                        "country": "Burkina Faso",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["burkinaFasoLow", "burkinaFasoHigh"]
+                    },
+                    "BG": {
+                        "country": "Bulgaria",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["bulgariaLow", "bulgariaHigh"]
+                    },
+                    "BH": {
+                        "country": "Bahrain",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["bahrainLow", "bahrainHigh"]
+                    },
+                    "BI": {
+                        "country": "Burundi",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["burundiLow", "burundiHigh"]
+                    },
+                    "BJ": {
+                        "country": "Benin",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["beninLow", "beninHigh"]
+                    },
+                    "BL": {
+                        "country": "Saint Barthelemy",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "BM": {
+                        "country": "Bermuda",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["bermudaLow", "bermudaHigh"]
+                    },
+                    "BN": {
+                        "country": "Brunei Darussalam",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["bruneiDarussalamLow", "bruneiDarussalamHigh"]
+                    },
+                    "BO": {
+                        "country": "Bolivia, Plurinational State of",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["boliviaLow", "boliviaHigh"]
+                    },
+                    "BQ": {
+                        "country": "Bonaire, Sint Eustatius and Saba",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["bonaireSintEustatiusSabaLow", "bonaireSintEustatiusSabaHigh"]
+                    },
+                    "BR": {
+                        "country": "Brazil",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["brazilLow", "brazilHigh"]
+                    },
+                    "BS": {
+                        "country": "Bahamas",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "BT": {
+                        "country": "Bhutan",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["bhutanLow", "bhutanHigh"]
+                    },
+                    "BV": {
+                        "country": "Bouvet Island",
+                        "continent_code": "AN",
+                        "continent": "Antarctica",
+                        "maps": []
+                    },
+                    "BW": {
+                        "country": "Botswana",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["botswanaLow", "botswanaHigh"]
+                    },
+                    "BY": {
+                        "country": "Belarus",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["belarusLow", "belarusHigh"]
+                    },
+                    "BZ": {
+                        "country": "Belize",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["belizeLow", "belizeHigh"]
+                    },
+                    "CA": {
+                        "country": "Canada",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["canadaLow", "canadaHigh"]
+                    },
+                    "CC": {
+                        "country": "Cocos (Keeling) Islands",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "CD": {
+                        "country": "Congo, the Democratic Republic of the",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["congoDRLow", "congoDRHigh"]
+                    },
+                    "CF": {
+                        "country": "Central African Republic",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["centralAfricanRepublicLow", "centralAfricanRepublicHigh"]
+                    },
+                    "CG": {
+                        "country": "Congo",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["congoLow", "congoHigh"]
+                    },
+                    "CH": {
+                        "country": "Switzerland",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["switzerlandLow", "switzerlandHigh"]
+                    },
+                    "CI": {
+                        "country": "Cote d'Ivoire",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "CK": {
+                        "country": "Cook Islands",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "CL": {
+                        "country": "Chile",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["chileLow", "chileHigh"]
+                    },
+                    "CM": {
+                        "country": "Cameroon",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["cameroonLow", "cameroonHigh"]
+                    },
+                    "CN": {
+                        "country": "China",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["chinaLow", "chinaHigh"]
+                    },
+                    "CO": {
+                        "country": "Colombia",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["colombiaLow", "colombiaHigh", "colombiaMuniLow", "colombiaMuniHigh"]
+                    },
+                    "CR": {
+                        "country": "Costa Rica",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["costaRicaLow", "costaRicaHigh"]
+                    },
+                    "CU": {
+                        "country": "Cuba",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "CV": {
+                        "country": "Cape Verde",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["capeVerdeLow", "capeVerdeHigh"]
+                    },
+                    "CW": {
+                        "country": "Curacao",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["curacaoLow", "curacaoHigh"]
+                    },
+                    "CX": {
+                        "country": "Christmas Island",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "CY": {
+                        "country": "Cyprus",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["cyprusLow", "cyprusHigh", "cyprusNorthCyprusLow", "cyprusNorthCyprusHigh"]
+                    },
+                    "CZ": {
+                        "country": "Czech Republic",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["czechiaLow", "czechiaHigh"]
+                    },
+                    "DE": {
+                        "country": "Germany",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["germanyLow", "germanyHigh"]
+                    },
+                    "DJ": {
+                        "country": "Djibouti",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["djiboutiLow", "djiboutiHigh"]
+                    },
+                    "DK": {
+                        "country": "Denmark",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["denmarkLow", "denmarkHigh"]
+                    },
+                    "DM": {
+                        "country": "Dominica",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["dominicaLow", "dominicaHigh"]
+                    },
+                    "DO": {
+                        "country": "Dominican Republic",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["dominicanRepublicLow", "dominicanRepublicHigh", "dominicanRepublicMuniLow", "dominicanRepublicMuniHigh"]
+                    },
+                    "DZ": {
+                        "country": "Algeria",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["algeriaLow", "algeriaHigh"]
+                    },
+                    "EC": {
+                        "country": "Ecuador",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["ecuadorLow", "ecuadorHigh"]
+                    },
+                    "EE": {
+                        "country": "Estonia",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["estoniaLow", "estoniaHigh"]
+                    },
+                    "EG": {
+                        "country": "Egypt",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["egyptLow", "egyptHigh"]
+                    },
+                    "EH": {
+                        "country": "Western Sahara",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "ER": {
+                        "country": "Eritrea",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "ES": {
+                        "country": "Spain",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["spainLow", "spainHigh", "spainProvincesLow", "spainProvincesHigh"]
+                    },
+                    "ET": {
+                        "country": "Ethiopia",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "FI": {
+                        "country": "Finland",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["finlandLow", "finlandHigh"]
+                    },
+                    "FJ": {
+                        "country": "Fiji",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": ["fijiEastLow", "fijiEastHigh", "fijiWestLow", "fijiWestHigh"]
+                    },
+                    "FK": {
+                        "country": "Falkland Islands (Malvinas)",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": []
+                    },
+                    "FM": {
+                        "country": "Micronesia, Federated States of",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "FO": {
+                        "country": "Faroe Islands",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["faroeIslandsLow", "faroeIslandsHigh"]
+                    },
+                    "FR": {
+                        "country": "France",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["franceLow", "franceHigh", "franceDepartmentsLow", "franceDepartmentsHigh"]
+                    },
+                    "GA": {
+                        "country": "Gabon",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["gabonLow", "gabonHigh"]
+                    },
+                    "GB": {
+                        "country": "United Kingdom",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["ukLow", "ukHigh", "ukCountiesLow", "ukCountiesHigh"]
+                    },
+                    "GB-CHA": {
+                        "country": "Channel Islands",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["channelIslandsLow", "channelIslandsHigh"]
+                    },
+                    "GD": {
+                        "country": "Grenada",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "GE": {
+                        "country": "Georgia",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["georgiaLow", "georgiaHigh", "georgiaSouthOssetiaLow", "georgiaSouthOssetiaHigh"]
+                    },
+                    "GF": {
+                        "country": "French Guiana",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["frenchGuianaLow", "frenchGuianaHigh"]
+                    },
+                    "GG": {
+                        "country": "Guernsey",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": []
+                    },
+                    "GH": {
+                        "country": "Ghana",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "GI": {
+                        "country": "Gibraltar",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": []
+                    },
+                    "GL": {
+                        "country": "Greenland",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["greenlandLow", "greenlandHigh"]
+                    },
+                    "GM": {
+                        "country": "Gambia",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "GN": {
+                        "country": "Guinea",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["guineaLow", "guineaHigh"]
+                    },
+                    "GP": {
+                        "country": "Guadeloupe",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "GQ": {
+                        "country": "Equatorial Guinea",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["equatorialGuineaLow", "equatorialGuineaHigh"]
+                    },
+                    "GR": {
+                        "country": "Greece",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["greeceLow", "greeceHigh"]
+                    },
+                    "GS": {
+                        "country": "South Georgia and the South Sandwich Islands",
+                        "continent_code": "AN",
+                        "continent": "Antarctica",
+                        "maps": []
+                    },
+                    "GT": {
+                        "country": "Guatemala",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "GU": {
+                        "country": "Guam",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "GW": {
+                        "country": "Guinea-Bissau",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "GY": {
+                        "country": "Guyana",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": []
+                    },
+                    "HK": {
+                        "country": "Hong Kong",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["hongKongLow", "hongKongHigh"]
+                    },
+                    "HM": {
+                        "country": "Heard Island and McDonald Islands",
+                        "continent_code": "AN",
+                        "continent": "Antarctica",
+                        "maps": []
+                    },
+                    "HN": {
+                        "country": "Honduras",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["hondurasLow", "hondurasHigh"]
+                    },
+                    "HR": {
+                        "country": "Croatia",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["croatiaLow", "croatiaHigh"]
+                    },
+                    "HT": {
+                        "country": "Haiti",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "HU": {
+                        "country": "Hungary",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["hungaryLow", "hungaryHigh"]
+                    },
+                    "ID": {
+                        "country": "Indonesia",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["indonesiaLow", "indonesiaHigh"]
+                    },
+                    "IE": {
+                        "country": "Ireland",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["irelandLow", "irelandHigh"]
+                    },
+                    "IL": {
+                        "country": "Israel",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["israelLow", "israelHigh", "israelPalestineLow", "israelPalestineHigh"]
+                    },
+                    "IM": {
+                        "country": "Isle of Man",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": []
+                    },
+                    "IN": {
+                        "country": "India",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["indiaLow", "indiaHigh"]
+                    },
+                    "IO": {
+                        "country": "British Indian Ocean Territory",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "IQ": {
+                        "country": "Iraq",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "IR": {
+                        "country": "Iran, Islamic Republic of",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "IS": {
+                        "country": "Iceland",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["icelandLow", "icelandHigh"]
+                    },
+                    "IT": {
+                        "country": "Italy",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["italyLow", "italyHigh"]
+                    },
+                    "JE": {
+                        "country": "Jersey",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": []
+                    },
+                    "JM": {
+                        "country": "Jamaica",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "JO": {
+                        "country": "Jordan",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "JP": {
+                        "country": "Japan",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["japanLow", "japanHigh"]
+                    },
+                    "KE": {
+                        "country": "Kenya",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["kenyaLow", "kenyaHigh"]
+                    },
+                    "KG": {
+                        "country": "Kyrgyzstan",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["kyrgyzstanLow", "kyrgyzstanHigh"]
+                    },
+                    "KH": {
+                        "country": "Cambodia",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["cambodiaLow", "cambodiaHigh"]
+                    },
+                    "KI": {
+                        "country": "Kiribati",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "KM": {
+                        "country": "Comoros",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "KN": {
+                        "country": "Saint Kitts and Nevis",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "KP": {
+                        "country": "Korea, Democratic People's Republic of",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["northKoreaLow", "northKoreaHigh"]
+                    },
+                    "KR": {
+                        "country": "Korea, Republic of",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["southKoreaLow", "southKoreaHigh"]
+                    },
+                    "KT": {
+                        "country": "Saint Kitts and Nevis",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["stKittsNevisLow", "stKittsNevisHigh"]
+                    },
+                    "KW": {
+                        "country": "Kuwait",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "KY": {
+                        "country": "Cayman Islands",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "KZ": {
+                        "country": "Kazakhstan",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["kazakhstanLow", "kazakhstanHigh"]
+                    },
+                    "LA": {
+                        "country": "Lao People's Democratic Republic",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "LB": {
+                        "country": "Lebanon",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "LC": {
+                        "country": "Saint Lucia",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["saintLuciaLow", "saintLuciaHigh"]
+                    },
+                    "LI": {
+                        "country": "Liechtenstein",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["liechtensteinLow", "liechtensteinHigh"]
+                    },
+                    "LK": {
+                        "country": "Sri Lanka",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["sriLankaLow", "sriLankaHigh"]
+                    },
+                    "LR": {
+                        "country": "Liberia",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "LS": {
+                        "country": "Lesotho",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "LT": {
+                        "country": "Lithuania",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["lithuaniaLow", "lithuaniaHigh"]
+                    },
+                    "LU": {
+                        "country": "Luxembourg",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": []
+                    },
+                    "LV": {
+                        "country": "Latvia",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["latviaLow", "latviaHigh"]
+                    },
+                    "LY": {
+                        "country": "Libya",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "MA": {
+                        "country": "Morocco",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["moroccoLow", "moroccoHigh"]
+                    },
+                    "MC": {
+                        "country": "Monaco",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": []
+                    },
+                    "MD": {
+                        "country": "Moldova, Republic of",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["moldovaLow", "moldovaHigh"]
+                    },
+                    "ME": {
+                        "country": "Montenegro",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": []
+                    },
+                    "MF": {
+                        "country": "Saint Martin (French Part)",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "MG": {
+                        "country": "Madagascar",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "MH": {
+                        "country": "Marshall Islands",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "MK": {
+                        "country": "North Macedonia",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": []
+                    },
+                    "ML": {
+                        "country": "Mali",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["maliLow", "maliHigh"]
+                    },
+                    "MM": {
+                        "country": "Myanmar",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "MN": {
+                        "country": "Mongolia",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["mongoliaLow", "mongoliaHigh"]
+                    },
+                    "MO": {
+                        "country": "Macao",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "MP": {
+                        "country": "Northern Mariana Islands",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "MQ": {
+                        "country": "Martinique",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "MR": {
+                        "country": "Mauritania",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "MS": {
+                        "country": "Montserrat",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "MT": {
+                        "country": "Malta",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["maltaLow", "maltaHigh"]
+                    },
+                    "MU": {
+                        "country": "Mauritius",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "MV": {
+                        "country": "Maldives",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["maldivesLow", "maldivesHigh", "maldivesIslandsLow", "maldivesIslandsHigh"]
+                    },
+                    "MW": {
+                        "country": "Malawi",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "MX": {
+                        "country": "Mexico",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["mexicoLow", "mexicoHigh"]
+                    },
+                    "MY": {
+                        "country": "Malaysia",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["malaysiaLow", "malaysiaHigh"]
+                    },
+                    "MZ": {
+                        "country": "Mozambique",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "NA": {
+                        "country": "Namibia",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["namibiaLow", "namibiaHigh"]
+                    },
+                    "NC": {
+                        "country": "New Caledonia",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "NE": {
+                        "country": "Niger",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "NF": {
+                        "country": "Norfolk Island",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "NG": {
+                        "country": "Nigeria",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["nigeriaLow", "nigeriaHigh"]
+                    },
+                    "NI": {
+                        "country": "Nicaragua",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["nicaraguaLow", "nicaraguaHigh"]
+                    },
+                    "NL": {
+                        "country": "Netherlands",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["netherlandsLow", "netherlandsHigh"]
+                    },
+                    "NO": {
+                        "country": "Norway",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["norwayLow", "norwayHigh"]
+                    },
+                    "NP": {
+                        "country": "Nepal",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["nepalLow", "nepalHigh"]
+                    },
+                    "NR": {
+                        "country": "Nauru",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "NU": {
+                        "country": "Niue",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "NZ": {
+                        "country": "New Zealand",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": ["newZealandLow", "newZealandHigh"]
+                    },
+                    "OM": {
+                        "country": "Oman",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["omanLow", "omanHigh"]
+                    },
+                    "PA": {
+                        "country": "Panama",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["panamaLow", "panamaHigh"]
+                    },
+                    "PE": {
+                        "country": "Peru",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["peruLow", "peruHigh"]
+                    },
+                    "PF": {
+                        "country": "French Polynesia",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "PG": {
+                        "country": "Papua New Guinea",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "PH": {
+                        "country": "Philippines",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["philippinesLow", "philippinesHigh"]
+                    },
+                    "PK": {
+                        "country": "Pakistan",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["pakistanLow", "pakistanHigh"]
+                    },
+                    "PL": {
+                        "country": "Poland",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["polandLow", "polandHigh"]
+                    },
+                    "PM": {
+                        "country": "Saint Pierre and Miquelon",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["stPierreMiquelonLow", "stPierreMiquelonHigh"]
+                    },
+                    "PN": {
+                        "country": "Pitcairn",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "PR": {
+                        "country": "Puerto Rico",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["puertoRicoLow", "puertoRicoHigh"]
+                    },
+                    "PS": {
+                        "country": "Palestinian, State of",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["palestineLow", "palestineHigh"]
+                    },
+                    "PT": {
+                        "country": "Portugal",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["portugalLow", "portugalHigh", "portugalRegionsLow", "portugalRegionsHigh"]
+                    },
+                    "PW": {
+                        "country": "Palau",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "PY": {
+                        "country": "Paraguay",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["paraguayLow", "paraguayHigh"]
+                    },
+                    "QA": {
+                        "country": "Qatar",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["qatarLow", "qatarHigh"]
+                    },
+                    "RE": {
+                        "country": "Reunion",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "RO": {
+                        "country": "Romania",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["romaniaLow", "romaniaHigh"]
+                    },
+                    "RS": {
+                        "country": "Serbia",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["serbiaLow", "serbiaHigh", "serbiaNoKosovoLow", "serbiaNoKosovoHigh"]
+                    },
+                    "RU": {
+                        "country": "Russian Federation",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["russiaLow", "russiaHigh", "russiaCrimeaLow", "russiaCrimeaHigh"]
+                    },
+                    "RW": {
+                        "country": "Rwanda",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "SA": {
+                        "country": "Saudi Arabia",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["saudiArabiaLow", "saudiArabiaHigh"]
+                    },
+                    "SB": {
+                        "country": "Solomon Islands",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": ["solomonIslandsLow", "solomonIslandsHigh"]
+                    },
+                    "SC": {
+                        "country": "Seychelles",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["seychellesLow", "seychellesHigh"]
+                    },
+                    "SD": {
+                        "country": "Sudan",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["sudanLow", "sudanHigh"]
+                    },
+                    "SE": {
+                        "country": "Sweden",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["swedenLow", "swedenHigh"]
+                    },
+                    "SG": {
+                        "country": "Singapore",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["singaporeLow", "singaporeHigh"]
+                    },
+                    "SH": {
+                        "country": "Saint Helena, Ascension and Tristan da Cunha",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["saintHelenaLow", "saintHelenaHigh"]
+                    },
+                    "SI": {
+                        "country": "Slovenia",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["sloveniaLow", "sloveniaHigh", "sloveniaRegionsLow", "sloveniaRegionsHigh"]
+                    },
+                    "SJ": {
+                        "country": "Svalbard and Jan Mayen",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["svalbardLow", "svalbardHigh"]
+                    },
+                    "SK": {
+                        "country": "Slovakia",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["slovakiaLow", "slovakiaHigh"]
+                    },
+                    "SL": {
+                        "country": "Sierra Leone",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "SM": {
+                        "country": "San Marino",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["sanMarinoLow", "sanMarinoHigh"]
+                    },
+                    "SN": {
+                        "country": "Senegal",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["senegalLow", "senegalHigh"]
+                    },
+                    "SO": {
+                        "country": "Somalia",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["somaliaLow", "somaliaHigh"]
+                    },
+                    "SR": {
+                        "country": "Suriname",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": []
+                    },
+                    "SS": {
+                        "country": "South Sudan",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "ST": {
+                        "country": "Sao Tome and Principe",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["saoTomePrincipeLow", "saoTomePrincipeHigh"]
+                    },
+                    "SV": {
+                        "country": "El Salvador",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["elSalvadorLow", "elSalvadorHigh"]
+                    },
+                    "SX": {
+                        "country": "Sint Maarten (Dutch Part)",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "SY": {
+                        "country": "Syrian Arab Republic",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["syriaLow", "syriaHigh"]
+                    },
+                    "SZ": {
+                        "country": "Swaziland",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["eswatiniLow", "eswatiniHigh"]
+                    },
+                    "TC": {
+                        "country": "Turks and Caicos Islands",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "TD": {
+                        "country": "Chad",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["chadLow", "chadHigh"]
+                    },
+                    "TF": {
+                        "country": "French Southern Territories",
+                        "continent_code": "AN",
+                        "continent": "Antarctica",
+                        "maps": []
+                    },
+                    "TG": {
+                        "country": "Togo",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "TH": {
+                        "country": "Thailand",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["thailandLow", "thailandHigh"]
+                    },
+                    "TJ": {
+                        "country": "Tajikistan",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["tajikistanLow", "tajikistanHigh"]
+                    },
+                    "TK": {
+                        "country": "Tokelau",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "TL": {
+                        "country": "Timor-Leste",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "TM": {
+                        "country": "Turkmenistan",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "TN": {
+                        "country": "Tunisia",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["tunisiaLow", "tunisiaHigh"]
+                    },
+                    "TO": {
+                        "country": "Tonga",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "TR": {
+                        "country": "Turkey",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["turkeyLow", "turkeyHigh"]
+                    },
+                    "TT": {
+                        "country": "Trinidad and Tobago",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "TV": {
+                        "country": "Tuvalu",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "TW": {
+                        "country": "Taiwan, Province of China",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": []
+                    },
+                    "TZ": {
+                        "country": "Tanzania, United Republic of",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["tanzaniaLow", "tanzaniaHigh"]
+                    },
+                    "UA": {
+                        "country": "Ukraine",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["ukraineLow", "ukraineHigh"]
+                    },
+                    "UG": {
+                        "country": "Uganda",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "UM": {
+                        "country": "United States Minor Outlying Islands",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "US": {
+                        "country": "United States",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["usaLow", "usaHigh", "usaTerritoriesLow", "usaTerritoriesHigh", "usaTerritories2Low", "usaTerritories2High"]
+                    },
+                    "UY": {
+                        "country": "Uruguay",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": []
+                    },
+                    "UZ": {
+                        "country": "Uzbekistan",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["uzbekinstanLow", "uzbekinstanHigh"]
+                    },
+                    "VA": {
+                        "country": "Holy See (Vatican City State)",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["vaticanLow", "vaticanHigh"]
+                    },
+                    "VC": {
+                        "country": "Saint Vincent and the Grenadines",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": ["saintVincentLow", "saintVincentHigh"]
+                    },
+                    "VE": {
+                        "country": "Venezuela, Bolivarian Republic of",
+                        "continent_code": "SA",
+                        "continent": "South America",
+                        "maps": ["venezuelaLow", "venezuelaHigh"]
+                    },
+                    "VG": {
+                        "country": "Virgin Islands, British",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "VI": {
+                        "country": "Virgin Islands, U.S.",
+                        "continent_code": "NA",
+                        "continent": "North America",
+                        "maps": []
+                    },
+                    "VN": {
+                        "country": "Viet Nam",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["vietnamLow", "vietnamHigh"]
+                    },
+                    "VU": {
+                        "country": "Vanuatu",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "WF": {
+                        "country": "Wallis and Futuna",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": []
+                    },
+                    "WS": {
+                        "country": "Samoa",
+                        "continent_code": "OC",
+                        "continent": "Oceania",
+                        "maps": ["samoaLow", "samoaHigh"]
+                    },
+                    "YE": {
+                        "country": "Yemen",
+                        "continent_code": "AS",
+                        "continent": "Asia",
+                        "maps": ["yemenLow", "yemenHigh"]
+                    },
+                    "YT": {
+                        "country": "Mayotte",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": []
+                    },
+                    "ZA": {
+                        "country": "South Africa",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["southAfricaLow", "southAfricaHigh"]
+                    },
+                    "ZM": {
+                        "country": "Zambia",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["zambiaLow", "zambiaHigh"]
+                    },
+                    "ZW": {
+                        "country": "Zimbabwe",
+                        "continent_code": "AF",
+                        "continent": "Africa",
+                        "maps": ["zimbabweLow", "zimbabweHigh"]
+                    },
+                    "XK": {
+                        "country": "Kosovo",
+                        "continent_code": "EU",
+                        "continent": "Europe",
+                        "maps": ["kosovoLow", "kosovoHigh"]
+                    }
+                };
+
+
+                var continents = {
+                    "AF": 0,
+                    "AN": 1,
+                    "AS": 2,
+                    "EU": 3,
+                    "NA": 4,
+                    "OC": 5,
+                    "SA": 6
+                }
+
+                // Create map instance
+                var chart = am4core.create("chartdiv", am4maps.MapChart);
+                chart.projection = new am4maps.projections.Miller();
+
+                // Create map polygon series for world map
+                var worldSeries = chart.series.push(new am4maps.MapPolygonSeries());
+                worldSeries.useGeodata = true;
+                worldSeries.geodata = am4geodata_worldLow;
+                worldSeries.exclude = ["AQ"];
+
+                var worldPolygon = worldSeries.mapPolygons.template;
+                worldPolygon.tooltipText = "{name}";
+                worldPolygon.nonScalingStroke = true;
+                worldPolygon.strokeOpacity = 0.5;
+                worldPolygon.fill = am4core.color("#eee");
+                worldPolygon.propertyFields.fill = "color";
+
+                var hs = worldPolygon.states.create("hover");
+                hs.properties.fill = chart.colors.getIndex(9);
+
+
+                // Create country specific series (but hide it for now)
+                var countrySeries = chart.series.push(new am4maps.MapPolygonSeries());
+                countrySeries.useGeodata = true;
+                countrySeries.hide();
+                countrySeries.geodataSource.events.on("done", function (ev) {
+                    worldSeries.hide();
+                    countrySeries.show();
+                });
+
+                var countryPolygon = countrySeries.mapPolygons.template;
+                countryPolygon.tooltipText = "{name}";
+                countryPolygon.nonScalingStroke = true;
+                countryPolygon.strokeOpacity = 0.5;
+                countryPolygon.fill = am4core.color("#eee");
+
+                var hs = countryPolygon.states.create("hover");
+                hs.properties.fill = chart.colors.getIndex(9);
+
+                // Set up click events
+                worldPolygon.events.on("hit", function (ev) {
+                    ev.target.series.chart.zoomToMapObject(ev.target);
+                    var map = ev.target.dataItem.dataContext.map;
+                    if (map) {
+                        ev.target.isHover = false;
+                        countrySeries.geodataSource.url = "https://www.amcharts.com/lib/4/geodata/json/" + map + ".json";
+                        countrySeries.geodataSource.load();
+                    }
+                });
+
+                // Set up data for countries
+                var data = [];
+                for (var id in countries) {
+                    if (countries.hasOwnProperty(id)) {
+                        var country = countries[id];
+                        if (country.maps.length) {
+                            data.push({
+                                id: id,
+                                color: chart.colors.getIndex(continents[country.continent_code]),
+                                map: country.maps[0]
+                            });
+                        }
+                    }
+                }
+                worldSeries.data = data;
+
+                // Zoom control
+                chart.zoomControl = new am4maps.ZoomControl();
+
+                var homeButton = new am4core.Button();
+                homeButton.events.on("hit", function () {
+                    worldSeries.show();
+                    countrySeries.hide();
+                    chart.goHome();
+                });
+
+                homeButton.icon = new am4core.Sprite();
+                homeButton.padding(7, 5, 7, 5);
+                homeButton.width = 30;
+                homeButton.icon.path = "M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8";
+                homeButton.marginBottom = 10;
+                homeButton.parent = chart.zoomControl;
+                homeButton.insertBefore(chart.zoomControl.plusButton);
+
+            }); // end am4core.ready()
+        </script>
+
+
+        <div id="chartdiv"></div>
+
+
+
+
+        <div class="green-chart ">
+            <div><img width="535" src="newmainch.png" /></div>
+            <div class="green-number" style="background-color:#fff;padding:30px;">
+                <p style="margin:0 0 5px;color:#757575;font-size:14px;">Approve rate are above average</p>
+                <p style="color:#424242;font-size:40px;">12,673<span style="color:#424242;font-size:14px;margin-left:10px;">PCS</span></p>
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <section class="users mx-auto">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-4 cards">
+                <div class="card">
+                    <div style="width:100%;height:200px;background:linear-gradient(rgba(103,58,183,.8),rgba(103,58,183,.8)),url(beach.webp);background-size:100% 100%;background-repeat:no-repeat;background-position:center;" class="card-head">
+                        <div class="pic-user  ">
+                            <div class="pic-user-face"><img src=" https://getbootstrapadmin.com/remark/material/global/portraits/5.jpg"></div>
+                            <div class="pic-user-text">
+
+                                <p style="font-size:20px;">Robin Ahrens</p>
+                                <p style="font-size:14px;">machidesign@gmail</p>
+                                <div class="icons"><i class='fab fa-twitter'></i><i class='fab fa-facebook-f'></i><i class='fab fa-dribbble'></i></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="red-plus mr-3"><span class="" style="border:solid 1px #f44336;background-color:#f44336;display:inline-flex;font-size:45px;width:60px;height:60px;color:#fff;border-radius:50%;align-items:center;justify-content:center;"><i class="fas fa-plus" style="font-size:20px;color:#fff;" aria-hidden="true"></i></span></div>
+                    <div class="card-body">
+                        <ul class="users mx-auto">
+                            <li>
+                                <div style="border-bottom:solid 1px #e0e0e0;" class="row">
+                                    <div class="user-face"><img src="https://getbootstrapadmin.com/remark/material/global/portraits/1.jpg"></div>
+                                    <div class="user-name">
+                                        <h6>Herman Beck</h6>
+                                        <p>San Francisco</p>
+
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div style="border-bottom:solid 1px #e0e0e0;" class="row">
+                                    <div class="user-face"><img src="https://getbootstrapadmin.com/remark/material/global/portraits/2.jpg"></div>
+                                    <div class="user-name">
+                                        <h6>Mary Adams</h6>
+                                        <p>Salt Lake City, Utah</p>
+
+                                    </div>
+
+                                </div>
+                            </li>
+                            <li>
+                                <div style="border-bottom:solid 1px #e0e0e0;" class="row">
+                                    <div class="user-face"><img src="https://getbootstrapadmin.com/remark/material/global/portraits/3.jpg"></div>
+                                    <div class="user-name">
+                                        <h6>Caleb Richards</h6>
+                                        <p>Basking Ridge, NJ</p>
+
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4 cards">
+                <div class="card">
+
+                    <div class="chat align-center  mx-auto row">
+                        <div class="chat-arrow"><i class='fas fa-angle-left' style='font-size:14px;color:#3949ab;margin-top:12px;'></i></div>
+                        <div style="color:#757575;font-size:14px;" class="chat-friend">Conversation with June Lane <span><img style="width:40px;border-radius:100%;" src="https://getbootstrapadmin.com/remark/material/global/portraits/4.jpg"</span></div>
+
+                    </div>
+                    <div class="card-body mt-1">
+                        <div class="lil-chat men mx-auto">
+                            <div class="lil-chat-user"><img src="https://getbootstrapadmin.com/remark/material/global/portraits/5.jpg" /></div>  <div style="height:auto;" class="lil-chat-text big-text"><p style="margin-top:5px;margin-bottom: 0.5rem;">Good morning, sir.</p>What can I do for you?</div>
+                        </div>
+                        <div class="lil-chat woman-message mx-auto">
+                            <div  id="reverse" ><p style="margin-top:10px;">Well, I am just looking around.</p></div>  <div class="lil-chat-user "><img src="https://getbootstrapadmin.com/remark/material/global/portraits/4.jpg" /></div>
+                        </div>
+                        <div class="lil-chat men mx-auto">
+                            <div class="lil-chat-user"><img src="https://getbootstrapadmin.com/remark/material/global/portraits/5.jpg" /></div>  <div class="lil-chat-text"><p style="margin-top:10px;">If necessary, please ask me.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="message mx-auto">
+                        <div class="message-camera"><i class='fas fa-camera' style='font-size:14px;color:#757575;'></i></div>
+                        <div class="message-text"><form style="padding:8px;"><input class="message-place" type="text" placeholder="Type message here..."></form></div>
+                        <div class="message-arrow">
+                            <i class='fas fa-play' style='font-size:14px;color:#757575;'></i>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4 cards">
+                <div class="card">
+                    <img src="https://getbootstrapadmin.com/remark/material/global/photos/focus-4-960x480.jpg" class="card-img-top flowers" alt="...">
+                    <div class="client-img">
+                        <span class="client">
+                            <img src="https://getbootstrapadmin.com/remark/material/global/portraits/2.jpg">
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <h5>Caleb Richards</h5>
+                        <p style="color:#9e9e9e;">2 hours ago | Comments 20</p>
+                        <p style="font-size:16px;font-weight:450;">Lorem ipsum dolLorem ip sum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.or sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</pstyle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <section class="tables mx-auto ">
+
+        <div class="row ">
+            <div class="col-sm 12 col-md-12 col-lg-6  ">
+                <table>
+                    <tr>
+                        <th style="color:#454545;font-size:20px;" colspan="4">Projects</th>
+
+                    </tr>
+                    <tr>
+                        <th>Projects</th>
+                        <th>Completed</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td>The sun climbing plan</td>
+                        <td><i style="color:rgb(211, 47, 47);font-size:20px;" class="fas fa-chart-pie"></i></td>
+                        <td>Jan 1, 2017</td>
+                        <th><i class='fas fa-wrench' style='font-size:15px;color:#757575;margin:10%;'></i><i class='fas fa-times' style='font-size:15px;color:#757575;'></i></th>
+                    </tr>
+                    <tr>
+                        <td>Lunar probe project</td>
+                        <td><i style="color:rgb(25, 118, 210);font-size:20px;" class="fas fa-chart-pie"></i></td>
+                        <td>Feb 12, 2017</td>
+                        <th><i class='fas fa-wrench' style='font-size:15px;color:#757575;margin:10%;'></i><i class='fas fa-times' style='font-size:15px;color:#757575;'></i></th>
+                    </tr>
+                    <tr>
+                        <td>Dream seccesseful plan</td>
+                        <td><i style="color:rgb(56, 142, 60);font-size:20px;" class="fas fa-chart-pie"></i></td>
+                        <td>Apr 9, 2017</td>
+                        <th><i class='fas fa-wrench' style='font-size:15px;color:#757575;margin:10%;'></i><i class='fas fa-times' style='font-size:15px;color:#757575;'></i></th>
+                    </tr>
+                    <tr>
+                        <td>Office automatization </td>
+                        <td><i style="color:rgb(255, 167, 38);font-size:20px;" class="fas fa-chart-pie"></i></td>
+                        <td>May 15, 2017</td>
+                        <th><i class='fas fa-wrench' style='font-size:15px;color:#757575;margin:10%;'></i><i class='fas fa-times' style='font-size:15px;color:#757575;'></i></th>
+                    </tr>
+                    <tr>
+                        <td>Open strategy</td>
+                        <td><i style="color:rgb(141, 110, 99);font-size:20px;" class="fas fa-chart-pie"></i></td>
+                        <td>Jun 2, 2017</td>
+                        <th><i class='fas fa-wrench' style='font-size:15px;color:#757575;margin:10%;'></i><i class='fas fa-times' style='font-size:15px;color:#757575;'></i></th>
+                    </tr>
+
+                </table>
+
+
+
+
+            </div>
+            <div class="col-sm 12 col-md-12 col-lg-6">
+
+                <table style="height:100%;">
+                    <tr>
+                        <th style="color:#454545;font-size:20px;" colspan="4">Projects Status <span style="background-color:#17a2b8;border:solid 1px #17a2b8;color:#fff; padding:2.5px 6px;border-radius:50%;font-size:13px;">5</span></th>
+
+                    </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Projects</th>
+                        <th>Status</th>
+                        <th>Progress</th>
+
+                    </tr>
+
+                    <tr>
+                        <td>619</td>
+                        <td>The sun climbing plan</td>
+                        <td><span style="border:solid 1px #007bff;background-color:#007bff;" class="status">Developing</span></td>
+                        <td><svg class="peity" height="22" width="44"><polygon fill="#90caf9" points="0 13.625 0 0.5 4.888888888888889 5.75 9.777777777777779 8.375 14.666666666666668 16.25 19.555555555555557 21.5 24.444444444444446 18.875 29.333333333333336 8.375 34.22222222222223 5.75 39.111111111111114 0.5 44 8.375 44 13.625"></polygon><polyline fill="none" points="0 0.5 4.888888888888889 5.75 9.777777777777779 8.375 14.666666666666668 16.25 19.555555555555557 21.5 24.444444444444446 18.875 29.333333333333336 8.375 34.22222222222223 5.75 39.111111111111114 0.5 44 8.375" stroke="#1e88e5" stroke-width="1" stroke-linecap="square"></polyline></svg></td>
+
+                    </tr>
+                    <tr>
+                        <td>620</td>
+                        <td>Lunar probe project</td>
+                        <td><span style="border:solid 1px #ffc107;background-color:#ffc107;color:#000;" class="status">Design</span></td>
+                        <td><svg class="peity" height="22" width="44"><polygon fill="#90caf9" points="0 17.3 0 13.1 4.888888888888889 21.5 9.777777777777779 17.3 14.666666666666668 8.9 19.555555555555557 4.699999999999999 24.444444444444446 13.1 29.333333333333336 21.5 34.22222222222223 13.1 39.111111111111114 0.5 44 8.9 44 17.3"></polygon><polyline fill="none" points="0 13.1 4.888888888888889 21.5 9.777777777777779 17.3 14.666666666666668 8.9 19.555555555555557 4.699999999999999 24.444444444444446 13.1 29.333333333333336 21.5 34.22222222222223 13.1 39.111111111111114 0.5 44 8.9" stroke="#1e88e5" stroke-width="1" stroke-linecap="square"></polyline></svg></td>
+
+                    </tr>
+                    <tr>
+                        <td>621</td>
+                        <td>Dream seccesseful plan</td>
+                        <td><span style="border:solid 1px #17a2b8;background-color:#17a2b8;" class="status">Testing</span></td>
+                        <td><svg class="peity" height="22" width="44"><polygon fill="#90caf9" points="0 13.625 0 8.375 4.888888888888889 5.75 9.777777777777779 16.25 14.666666666666668 21.5 19.555555555555557 16.25 24.444444444444446 13.625 29.333333333333336 8.375 34.22222222222223 3.125 39.111111111111114 0.5 44 5.75 44 13.625"></polygon><polyline fill="none" points="0 8.375 4.888888888888889 5.75 9.777777777777779 16.25 14.666666666666668 21.5 19.555555555555557 16.25 24.444444444444446 13.625 29.333333333333336 8.375 34.22222222222223 3.125 39.111111111111114 0.5 44 5.75" stroke="#1e88e5" stroke-width="1" stroke-linecap="square"></polyline></svg></td>
+
+                    </tr>
+                    <tr>
+                        <td>622</td>
+                        <td>Office automatization </td>
+                        <td><span style="border:solid 1px #dc3545;background-color:#dc3545;" class="status">Canceled</span></td>
+                        <td><svg class="peity" height="22" width="44"><polygon fill="#90caf9" points="0 15.5 0 12.5 4.888888888888889 21.5 9.777777777777779 15.5 14.666666666666668 9.5 19.555555555555557 3.5 24.444444444444446 0.5 29.333333333333336 6.5 34.22222222222223 9.5 39.111111111111114 3.5 44 9.5 44 15.5"></polygon><polyline fill="none" points="0 12.5 4.888888888888889 21.5 9.777777777777779 15.5 14.666666666666668 9.5 19.555555555555557 3.5 24.444444444444446 0.5 29.333333333333336 6.5 34.22222222222223 9.5 39.111111111111114 3.5 44 9.5" stroke="#1e88e5" stroke-width="1" stroke-linecap="square"></polyline></svg></td>
+
+                    </tr>
+                    <tr>
+                        <td>623</td>
+                        <td>Open strategy</td>
+                        <td style="font-size:10px;">Reply waiting</td>
+                        <td><svg class="peity" height="22" width="44"><polygon fill="#90caf9" points="0 13.625 0 3.125 4.888888888888889 8.375 9.777777777777779 16.25 14.666666666666668 21.5 19.555555555555557 18.875 24.444444444444446 11 29.333333333333336 5.75 34.22222222222223 0.5 39.111111111111114 8.375 44 3.125 44 13.625"></polygon><polyline fill="none" points="0 3.125 4.888888888888889 8.375 9.777777777777779 16.25 14.666666666666668 21.5 19.555555555555557 18.875 24.444444444444446 11 29.333333333333336 5.75 34.22222222222223 0.5 39.111111111111114 8.375 44 3.125" stroke="#1e88e5" stroke-width="1" stroke-linecap="square"></polyline></svg></td>
+
+                    </tr>
+
+                </table>
+
+
+            </div>
+        </div>
+
+    </section>
+
+ <footer>
+        <div class="mx-auto foot">
+            <p>© 2018 <a href="">Remark</a></p>
+            <p>Crafted with  by<i class='ml-2 fas fa-heart' style='font-size:10px;color:#dc3545;'></i> <a href="">Creation Studio</a></p>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>
